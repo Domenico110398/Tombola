@@ -60,7 +60,7 @@ span, h1, h2, input, pre, ul, ol, dl, div {
 
     #tombolone {
     border: 3px solid;
-    float: right;
+    float: left;
     }
 
     #tombolone td {
@@ -107,8 +107,12 @@ table caption {
       color: whitesmoke;
     }
 
-    #mosseText{
-      float: right;
+    #mosseText, #zonaEstrazione, #tabelleContainer, #inizio{
+      float:  left;
+    }
+
+    #zonaEstrazione{
+      display: none;
     }
 
   </style>
@@ -116,24 +120,26 @@ table caption {
 
 <body>
   <h1>Tombola</h1>
-  <table id="tombolone"></table>
-  <div id="mosseText"></div>
-  <span style="display: none" id="n">Numero Estratto</span>
-  <p style="display: none" id="numero">0</p>
-  <span id="tC">Numero Cartelle</span>
-  <input type="number" max="6" min="1" value="6" id="nCart"><br>
-  <input type="button" onclick="creaCartella()" value="Crea Cartelle" id="creaC">
-  <div id="Tombolino">
-    <span>Con tombolino?</span>
-    <input type="checkbox" onchange="changeTombolino()"/>
-  </div>
-  <input type="button" onclick="gioca()" value="Gioca" style="display: none;" id="gioca">
-  <input type="button" onclick="estraiNumero()" value="Estrai Numero" style="display: none;" id="estraiNumero">
-  <button onclick="ricarica()" id="rigiocaB" style="display: none;">Rigioca</button>
-
+  <div id="inizio">
+    <span id="tC">Numero Cartelle</span>
+    <input type="number" max="6" min="1" value="6" id="nCart"><br>
+    <input type="button" onclick="creaCartella()" value="Crea Cartelle" id="creaC">
+    <div id="Tombolino">
+      <span>Con tombolino?</span>
+      <input type="checkbox" onchange="changeTombolino()"/>
+    </div>
+    </div>
+    <input type="button" onclick="gioca()" value="Gioca" style="display: none;" id="gioca">
   <span id="tabelleContainer"></span>
+  <table id="tombolone"></table>
+  <span id="zonaEstrazione">
+    <span id="n">Numero Estratto</span>
+    <p id="numero">0</p>
+    <input type="button" onclick="estraiNumero()" value="Estrai Numero" id="estraiNumero">
+    <button onclick="ricarica()" id="rigiocaB" style="display: none;">Rigioca</button>
+    </span>
+  <span id="mosseText"></span>
 
-  
 
   <script>
 
@@ -145,7 +151,7 @@ var cartelle=[];                                                //array globale 
 var nDaEstrarre = createArray(1, 90);                           //creo l'arrey globale dove ci saranno i numeri ancora da estrarre
 var numeriEs = [];                                              //array dei numeri estratti
 
-var cartellaMax = 1;// 1 = niente, 2 = ambo, 3 = terno, 4 = quaterna, 5 = quintina, 6 = tombola   variabile per capire aumentare la fase di gioco
+var cartellaMax = 1;                  // 1 = niente, 2 = ambo, 3 = terno, 4 = quaterna, 5 = quintina, 6 = tombola   variabile per capire aumentare la fase di gioco
 var cartelleDaNonContare = [];                                  //qui ci saranno le cartelle vincenti quindi da non contare
 
 var tombolino = false;                                          //Tombolino a false, serve per sapere se l0utente ha attivato il tombolino, all'inizio è falso (no)
@@ -154,7 +160,8 @@ function creaCartella() {                                       //funzione crea 
 
   cartelle = [];                                                //svuoto cartelle ogni volta che creo le cartelle per mettere le nuove
   let g = Visibile("gioca");                                    //rendo visibile l'oggetto con id "gioca"
-  var container = $("#tabelleContainer").empty();            //dichiaro la variabile container che avra il container di tabelle a all'inizio di ogni for si svuotera
+  nonVisibile("inizio");                                        //non visibili gli oggetti iniziali
+  var container = $("#tabelleContainer").empty();               //dichiaro la variabile container che avra il container di tabelle a all'inizio di ogni for si svuotera
 
   let cart=parseInt(document.getElementById("nCart").value);    //dichiaro la variabile cart e le passo il valore dell'oggetto con id "nCart"
   if(cart>6){
@@ -291,18 +298,11 @@ function cancellaNumeri(vettore, numeroPreso){            //funzione risciamata 
 
 function gioca(){                                               //funzione richiamata dal bottone gioca
 
-  nonVisibile("tC");                                    //richiama la funzione non visibile che rendde non visibile l'oggetto con id tc
-  nonVisibile("nCart");                                 //diventa non visibile nCart
-  nonVisibile("creaC");                                 //diventa non visibile creaC
-  nonVisibile("gioca");                                 //diventa invisibile gioca
-  nonVisibile("Tombolino")
+  nonVisibile("gioca");                                             //non visibile il bottone gioca
 
-  Visibile("n");                                        //richiama la funzione Visibile che rende visibile l'oggetto con id n
-  Visibile("numero");                                   //diventa visibile numero
-  
-  Visibile("estraiNumero");                             //diventa visibile estraiNumero
+  Visibile("zonaEstrazione");                                        //richiama la funzione Visibile che rende visibile l'oggetto con id n
 
-  creaTombolone();                                      //richiamo la funzione crea tombolone che crea il tombolone
+  creaTombolone();                                                   //richiamo la funzione crea tombolone che crea il tombolone
 }
 
 function estraiNumero(){                                                //funzione richiamata dal bottone estrai numero
@@ -400,7 +400,7 @@ function Visibile(id){                                          //funzione visib
 
 function nonVisibile(id){                                       //funzione simile a Visibile con la differenza che trasforma il display in none, oggetto non visibile
   let N = document.querySelector('#' + id);                     
-  N.style = "display: none;";                                   //oggetto diventa con display non, diventa non visibile
+  N.style = "display: none;";                                   //oggetto diventa con display none, diventa non visibile
   return N;
 }
 
