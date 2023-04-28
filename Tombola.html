@@ -57,7 +57,7 @@ span, h1, h2, input, pre, ul, ol, dl, div {
       border: 1px solid black;
       border-radius: 5%;
     }
-    
+
     #tombolone {
     border: 3px solid;
     }
@@ -67,7 +67,7 @@ span, h1, h2, input, pre, ul, ol, dl, div {
         height: 24px;
         text-align: center;
     }
-    
+
     table, input, p{
       margin: 10px;
       text-align: center;
@@ -115,13 +115,10 @@ table caption {
 
 <body>
   <h1>Tombola</h1>
-  
   <table id="tombolone"></table>
-  
   <div id="mosseText"></div>
   <span style="display: none;" id="n">Numero Estratto</span>
   <p style="display: none" id="numero">0</p>
-
   <span id="tC">Numero Cartelle</span>
   <input type="number" max="6" min="1" value="6" id="nCart"><br>
   <input type="button" onclick="creaCartella()" value="Crea Cartelle" id="creaC">
@@ -135,12 +132,13 @@ table caption {
 
   <span id="tabelleContainer"></span>
 
+  
 
   <script>
 
 var tombolone = [];
 var tomboloneChiaviNonContare = [];
-    
+
 var cartelle=[];                                                //array globale delle cartelle virtuali
 
 var nDaEstrarre = createArray(1, 90);                           //creo l'arrey globale dove ci saranno i numeri ancora da estrarre
@@ -204,7 +202,7 @@ function creaCartella() {                                       //funzione crea 
   }
 }
 
-    function creaTombolone(){
+function creaTombolone(){
   var table = $("#tombolone");
     let caption = document.createElement("caption");
     caption.innerText = "Tombolone";
@@ -265,27 +263,6 @@ function checkTombolone(numeroEstratto) {
     }
     return false;
 }
-    
-function creaTombolone(){
-  var Tcontainer = $("#tombolone").empty();
-
-  for (let Tomb = 0; Tomb<6; Tomb++){
-    var Ttable = document.createElement("table");
-    let id = Tomb +7;
-    Ttable.id = "cartella" + id;
-    for (let riga = 0; riga<3; riga++){
-      let trT = document.createElement("tr");
-      for (let colonna = 0; colonna<5; colonna ++){
-      let tdT = document.createElement("td");
-      tdT.innerText = riga + " " + colonna
-      $(tdT).attr("row", riga).attr("col", colonna);
-      trT.append(tdT);
-      }
-      Ttable.append(trT); 
-    }
-    Tcontainer.append(Ttable);
-  }
-}
 
 function createArray(n1,n2,escl = []){                          //funzione richiamata nel for delle righe per creare un array con tutti i numeri tranne quelli usciti
   var array = [];                                               //dichiaro una variabile di tipo vettore vuoto
@@ -324,7 +301,7 @@ function gioca(){                                               //funzione richi
   
   Visibile("estraiNumero");                             //diventa visibile estraiNumero
 
-  creaTombolone();
+  creaTombolone();                                      //richiamo la funzione crea tombolone che crea il tombolone
 }
 
 function estraiNumero(){                                                //funzione richiamata dal bottone estrai numero
@@ -375,7 +352,7 @@ function checkCartelle(numeroEstratto){                   //funzione richiamata 
     }                                                                   //e non considerare chi ha fatto tombola
   }
 
-    var tomboloneWin = checkTombolone(numeroEstratto);
+  var tomboloneWin = checkTombolone(numeroEstratto);
   var daScrivere = [];                                                  //dichiaro da scrivere che per ora e vuoto
     if(numeroCartelleVincenti > 0 || tomboloneWin) {                                    //controllo il numero di cartelle vincenti, se è maggiore di 0
         cartellaMax++;                                                  //incremento il valore di cartellaMax di 1
