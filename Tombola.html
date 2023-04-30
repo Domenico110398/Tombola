@@ -398,7 +398,7 @@ function checkCartelle(numeroEstratto){                   //funzione richiamata 
         else {                                                          //altrimenti
           if (numeroCartelleVincenti == 1 && tomboloneWin) {
                 let numeroCartella = parseInt(Object.keys(cartelleVincenti)[0]) + 1;
-                daScrivere.push(scrivere.substring(0, scrivere.length - 2) + " hanno fatto " + getNomeMossa());
+                daScrivere.push(scrivere.substring("Il tombolone con la cartella numero "+ numeroCartella + " hanno fatto " + getNomeMossa());
             }
             else {
                 if (tomboloneWin && numeroCartelleVincenti == 0) {
