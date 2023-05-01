@@ -103,6 +103,14 @@
     table td.td-separator-row {
     border-bottom: 4px solid rgb(206, 43, 55)!important;
     }
+    
+    colcolor {
+    border-right: rgb(241, 242, 241)!important;
+    }
+
+    rowcolor {
+    border-bottom:rgb(241, 242, 241)!important;
+    }
 
     table caption {
       margin-bottom: 6px;
@@ -294,6 +302,12 @@ function checkTombolone(numeroEstratto) {
                 } else if (tombolone[i][j] == numeroEstratto) {
                     tombolone[i][j] += 100;
                     $(`#tombolone td[data-row="${i}"][data-column="${j}"]`).addClass("numero-estratto");
+                    if ((i + 1) % 3 == 0) {
+                      $(td).addClass("rowcolor");
+                    }
+                    if ((j + 1) % 5 == 0) {
+                    $(td).addClass("colcolor");
+                    }
                     count++;
                 }
             }
@@ -323,7 +337,7 @@ function createArray(n1,n2,escl = []){                          //funzione richi
   return array;                                                 //ritorna un array con tutti i numeri tranna quelli che sono in escl
 }
 
-function cancellaNumeri(vettore, numeroPreso){            //funzione risciamata nel for dell'inserimento dei 5 numeri per non far mettere la stessa decina nella riga
+function cancellaNumeri(vettore, numeroPreso){                  //funzione risciamata nel for dell'inserimento dei 5 numeri per non far mettere la stessa decina nella riga
   let min = 0;                                                  //dichiaro una variabile che conterra il valore minimo
   let max = 0;                                                  //e una che avra il valore massimo del range della decina
   if(numeroPreso == 90) {                                       //se il numero preso(numeroPreso) è 90:caso particolare
@@ -352,7 +366,7 @@ function estraiNumero(){                                                //funzio
   nDaEstrarre.splice(indice, 1);                                        //in nDa Estrarre tolgo il numero appena estratto per non ripetere lo stesso sorteggio
   numeriEs.push(numeroEstratto);                                        //in numeriEs metto il numero estratto
   let N = document.querySelector('#numero');                            //dichiaro N e metto in essa l'oggetto con id "numero"
-  N.innerHTML = numeroEstratto;                           //nell'oggetto in N trasformo il testo nel numero estratto dall'array nell'indice preso randomicamente
+  N.innerHTML = numeroEstratto;                                         //nell'oggetto in N trasformo il testo nel numero estratto dall'array nell'indice preso randomicamente
   checkCartelle(numeroEstratto);                                        //richiama la funzione che controlla le cartelle e passo il numero estratto
 }
 
