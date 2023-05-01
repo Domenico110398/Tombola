@@ -304,7 +304,7 @@ function checkTombolone(numeroEstratto) {
             if (!(chiave in totCount)) {
                 totCount[chiave] = 0;
             }
-            totCount[chiave] += coun;
+            totCount[chiave] += count;
             if (totCount[chiave] == 15) {
                 tomboloneChiaviNonContare.push(chiave);
                 return true;
