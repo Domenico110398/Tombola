@@ -303,14 +303,14 @@ function checkTombolone(numeroEstratto) {
                 } else if (tombolone[i][j] == numeroEstratto) {
                     tombolone[i][j] += 100;
                     $(`#tombolone td[data-row="${i}"][data-column="${j}"]`).addClass("numero-estratto");
-                    if ((i + 1) % 3 == 0) {
-                      $(td).removeClass("td-separator-row");
+
+                
                       
-                    }
-                    if ((j + 1) % 5 == 0) {
-                      $(td).removeClass("td-separator-col");
+                    
+
+
                       
-                    }
+
                     count++;
                 }
             }
@@ -320,7 +320,7 @@ function checkTombolone(numeroEstratto) {
             if (!(chiave in totCount)) {
                 totCount[chiave] = 0;
             }
-            totCount[chiave] += count;
+            totCount[chiave] += coun;
             if (totCount[chiave] == 15) {
                 tomboloneChiaviNonContare.push(chiave);
                 return true;
