@@ -82,6 +82,7 @@
         width: 30px;
         height: 30px;
         text-align: center;
+        display: none;
     }
 
     table, input, p{
@@ -360,6 +361,8 @@ function gioca(){                                               //funzione richi
   Visibile("zonaEstrazione");                                        //richiama la funzione Visibile che rende visibile l'oggetto con id n
 
   creaTombolone();                                                   //richiamo la funzione crea tombolone che crea il tombolone
+  
+  Visibile("tombolone");
 }
 
 function estraiNumero(){                                                //funzione richiamata dal bottone estrai numero
