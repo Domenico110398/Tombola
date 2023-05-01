@@ -105,6 +105,14 @@
       border-bottom: 4px solid rgb(206, 43, 55)!important;
     }
     
+    table td.td-separator-colwh {
+      border-right: 4px solid rgb(241, 242, 241)!important;
+    }
+
+    table td.td-separator-rowwh {
+      border-bottom: 4px solid rgb(241, 242, 241)!important;
+    }
+    
     table caption {
       margin-bottom: 6px;
       font-weight: bold;
@@ -295,6 +303,14 @@ function checkTombolone(numeroEstratto) {
                 } else if (tombolone[i][j] == numeroEstratto) {
                     tombolone[i][j] += 100;
                     $(`#tombolone td[data-row="${i}"][data-column="${j}"]`).addClass("numero-estratto");
+                     if ((i + 1) % 3 == 0) {
+                        $(td).removeClass("td-separator-row");
+                        $(td).addClass("td-separator-rowwh");
+                      }move
+                     if ((j + 1) % 5 == 0) {
+                        $(td).removeClass("td-separator-col");
+                        $(td).addClass("td-separator-colwh");
+                      }
                     count++;
                 }
             }
