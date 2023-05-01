@@ -384,7 +384,7 @@ function estraiNumero(){                                                //funzio
   nDaEstrarre.splice(indice, 1);                                        //in nDa Estrarre tolgo il numero appena estratto per non ripetere lo stesso sorteggio
   numeriEs.push(numeroEstratto);                                        //in numeriEs metto il numero estratto
   let N = document.querySelector('#numero');                            //dichiaro N e metto in essa l'oggetto con id "numero"
-  N.addClass("numeroAnimation");
+  N.classList.add("numeroAnimation");                                   //aggiungo l'animazione effetto pallina che rotola
   N.innerHTML = numeroEstratto;                                         //nell'oggetto in N trasformo il testo nel numero estratto dall'array con l'indice preso randomicamente
   checkCartelle(numeroEstratto);                                        //richiama la funzione che controlla le cartelle e passo il numero estratto
 }
