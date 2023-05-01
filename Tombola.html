@@ -104,11 +104,11 @@
     border-bottom: 4px solid rgb(206, 43, 55)!important;
     }
     
-    colcolor {
+    table td.colcolor {
     border-right: rgb(241, 242, 241)!important;
     }
 
-    rowcolor {
+    table td.rowcolor {
     border-bottom:rgb(241, 242, 241)!important;
     }
 
@@ -303,10 +303,12 @@ function checkTombolone(numeroEstratto) {
                     tombolone[i][j] += 100;
                     $(`#tombolone td[data-row="${i}"][data-column="${j}"]`).addClass("numero-estratto");
                     if ((i + 1) % 3 == 0) {
+                      $(td).removeClass("td-separator-row");
                       $(td).addClass("rowcolor");
                     }
                     if ((j + 1) % 5 == 0) {
-                    $(td).addClass("colcolor");
+                      $(td).removeClass("td-separator-col");
+                      $(td).addClass("colcolor");
                     }
                     count++;
                 }
