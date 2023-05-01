@@ -98,21 +98,13 @@
     }
     
     table td.td-separator-col {
-    border-right: 4px solid rgb(206, 43, 55)!important;
+      border-right: 4px solid rgb(206, 43, 55)!important;
     }
 
     table td.td-separator-row {
-    border-bottom: 4px solid rgb(206, 43, 55)!important;
+      border-bottom: 4px solid rgb(206, 43, 55)!important;
     }
     
-
-    
-
-
-
-
-
-
     table caption {
       margin-bottom: 6px;
       font-weight: bold;
@@ -303,14 +295,6 @@ function checkTombolone(numeroEstratto) {
                 } else if (tombolone[i][j] == numeroEstratto) {
                     tombolone[i][j] += 100;
                     $(`#tombolone td[data-row="${i}"][data-column="${j}"]`).addClass("numero-estratto");
-
-                
-                      
-                    
-
-
-                      
-
                     count++;
                 }
             }
