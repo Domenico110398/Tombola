@@ -130,6 +130,19 @@
       background-color: rgb(241, 242, 241);
       color: rgb(0, 146, 70);
     }
+    
+    .numeroAnimation {
+      animation: roll 1s linear forwards;
+    }
+    
+    @keyframes roll {
+      0% {
+        transform: translateX(0) rotate(0);
+      }
+      100% {
+        transform: translateX(-150px) rotate(360deg);
+      }
+    }
 
     .numero-estratto{
       background-color: rgb(206, 43, 55);
@@ -371,7 +384,8 @@ function estraiNumero(){                                                //funzio
   nDaEstrarre.splice(indice, 1);                                        //in nDa Estrarre tolgo il numero appena estratto per non ripetere lo stesso sorteggio
   numeriEs.push(numeroEstratto);                                        //in numeriEs metto il numero estratto
   let N = document.querySelector('#numero');                            //dichiaro N e metto in essa l'oggetto con id "numero"
-  N.innerHTML = numeroEstratto;                                         //nell'oggetto in N trasformo il testo nel numero estratto dall'array nell'indice preso randomicamente
+  N.addClass("numeroAnimation");
+  N.innerHTML = numeroEstratto;                                         //nell'oggetto in N trasformo il testo nel numero estratto dall'array con l'indice preso randomicamente
   checkCartelle(numeroEstratto);                                        //richiama la funzione che controlla le cartelle e passo il numero estratto
 }
 
@@ -440,7 +454,7 @@ function checkCartelle(numeroEstratto){                   //funzione richiamata 
             }
            }
     }
-    if((cartellaMax == 6 && !tombolino) || cartellaMax == 7) {                          //se cartella Max è 6 o 7
+    if((cartellaMax == 6 && !tombolino) || cartellaMax == 7) {          //se cartella Max è 6 o 7
         alert("Gioco finito");                                          //il gioco finisce emando l'alert con gioco finito
         nonVisibile("estraiNumero");                                    //estrai numero non è più visibile
         Visibile("rigiocaB");                                           //appare il bottone rigioca che richiama la funzione ricarica
