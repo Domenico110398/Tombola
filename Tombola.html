@@ -305,11 +305,11 @@ function checkTombolone(numeroEstratto) {
                     $(`#tombolone td[data-row="${i}"][data-column="${j}"]`).addClass("numero-estratto");
                     if ((i + 1) % 3 == 0) {
                       $(td).removeClass("td-separator-row");
-                      $(td).addClass("rowcolor");
+                      
                     }
                     if ((j + 1) % 5 == 0) {
                       $(td).removeClass("td-separator-col");
-                      $(td).addClass("colcolor");
+                      
                     }
                     count++;
                 }
