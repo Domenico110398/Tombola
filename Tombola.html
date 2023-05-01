@@ -304,12 +304,12 @@ function checkTombolone(numeroEstratto) {
                     tombolone[i][j] += 100;
                     $(`#tombolone td[data-row="${i}"][data-column="${j}"]`).addClass("numero-estratto");
                      if ((i + 1) % 3 == 0) {
-                        $(td).removeClass("td-separator-row");
-                        $(td).addClass("td-separator-rowwh");
+                        $(`#tombolone td[data-row="${i}"][data-column="${j}"]`).removeClass("td-separator-row");
+                        $(`#tombolone td[data-row="${i}"][data-column="${j}"]`).addClass("td-separator-rowwh");
                       }move
                      if ((j + 1) % 5 == 0) {
-                        $(td).removeClass("td-separator-col");
-                        $(td).addClass("td-separator-colwh");
+                        $(`#tombolone td[data-row="${i}"][data-column="${j}"]`).removeClass("td-separator-col");
+                        $(`#tombolone td[data-row="${i}"][data-column="${j}"]`).addClass("td-separator-colwh");
                       }
                     count++;
                 }
