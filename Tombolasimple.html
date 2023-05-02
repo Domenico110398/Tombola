@@ -12,6 +12,29 @@
     background-color: rgb(241, 242, 241);
     }
     
+    input {
+    text-align: center;
+    height: 45px;
+    width: auto;
+    font-size: 28px;
+    background-color: rgb(241, 242, 241);
+    padding: 12px;
+    margin: 5px;
+    outline: 1px solid black;
+    border-radius: 30px;
+    border: 2px;
+    border-style: outset; /*bordo stile sopraelevato*/
+    }
+    
+    input:hover {
+        border-style: inset;
+        font-size: 26px; /*bordo stile scavato e font più piccolo al passaggio del mouse*/
+    }
+
+    input:focus {
+        border: 3px solid rgb(0, 146, 70);
+    }
+    
     #check{
       height: 45px;
       width: 45px;
@@ -20,6 +43,12 @@
       border-radius: 5px;
       border: 2px;
       border-style: outset;
+    }
+    
+    span, h1, h2, pre, ul, ol, dl, div, button{
+    padding: 10px;
+    margin: 4px;
+    font-size: xx-large;
     }
     
     h1 {
@@ -36,13 +65,14 @@
     }
     
     table{
-      border: 1px solid rgb(241, 242, 241);
+      border: 1px solid rgb(255, 255, 255);
       border-radius: 5%;
     }
 
     #tombolone {
-    border: 3px solid;
-    float: left;
+      border: 4px solid;
+      float: left;
+      font-size: xx-large;
     }
 
     #tombolone td {
@@ -58,8 +88,8 @@
 
     td, th {
       border: 1px solid rgb(20, 20, 20);
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
       border-radius: 100%;
     }
     
@@ -79,11 +109,12 @@
 
     p{
       text-align: center;
-      width:34px;
-      height:34px;
+      width:52px;
+      height:52px;
       border: 1px solid rgb(206, 43, 55);
       border-radius: 100%;
       font-weight: bold;
+      font-size: xx-large;
       background-color: rgb(241, 242, 241);
       color: rgb(0, 146, 70);
     }
