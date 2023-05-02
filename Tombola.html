@@ -137,10 +137,10 @@
     
     @keyframes roll {
       0% {
-        transform: translateX(150px) rotate(0);
+        transform: translateX(150px) rotate(360deg);
       }
       100% {
-        transform: translateX(0) rotate(360deg);
+        transform: translateX(0) rotate(0);
       }
     }
 
@@ -379,12 +379,15 @@ function gioca(){                                               //funzione richi
 }
 
 function estraiNumero(){                                                //funzione richiamata dal bottone estrai numero
+  let N = document.querySelector('#numero');                            //dichiaro N e metto in essa l'oggetto con id "numero"
+  N.classList.remove("numeroAnimation");                                //rimuovo l'animazione effetto pallina che rotola
   let indice = Math.floor(Math.random() * nDaEstrarre.length);          //dichiaro la variabile indice e le passo un numero tra 0 e la lunghezza di nDaEstrarre
   let numeroEstratto = nDaEstrarre[indice];                             //in numeroEstratto metto il valore che è nella posizione indice in nDaEstrarre
   nDaEstrarre.splice(indice, 1);                                        //in nDa Estrarre tolgo il numero appena estratto per non ripetere lo stesso sorteggio
   numeriEs.push(numeroEstratto);                                        //in numeriEs metto il numero estratto
-  let N = document.querySelector('#numero');                            //dichiaro N e metto in essa l'oggetto con id "numero"
-  N.classList.add("numeroAnimation");                                   //aggiungo l'animazione effetto pallina che rotola
+  setTimeout(function() {
+    N.classList.add("numeroAnimation");                                 // aggiungi nuovamente la classe "numeroAnimation"
+  }, 10);                                                               // attendi 10 millisecondi prima di aggiungere la classe, in modo che la rimozione abbia effetto                                   
   N.innerHTML = numeroEstratto;                                         //nell'oggetto in N trasformo il testo nel numero estratto dall'array con l'indice preso randomicamente
   checkCartelle(numeroEstratto);                                        //richiama la funzione che controlla le cartelle e passo il numero estratto
 }
