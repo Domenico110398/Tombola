@@ -1,2 +1,2 @@
 # Tombola
-Tombola HTML, CSS, javascript
+Tombola HTML, CSS, javascript and jquery
